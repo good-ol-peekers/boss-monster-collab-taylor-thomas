@@ -19,26 +19,26 @@ const heroes = [
         isActive: true,
         img:"https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1839&q=80"
     },
-    {
-        name: 'OddBall',
-        type: 'bathtub',
-        damage: 1,
-        health: 100,
-        level: 1,
-        gold: 1,
-        isActive: false,
-        img:"https://images.unsplash.com/photo-1626792133251-db513424bc2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-    },
-    {
-        name: 'Bjorg',
-        type: 'cyborg',
-        damage: 125,
-        health: 500,
-        level: 1,
-        gold: 1,
-        isActive: false,
-        img:"https://plus.unsplash.com/premium_photo-1671229062407-979e731e7bd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-    }
+    // {
+    //     name: 'OddBall',
+    //     type: 'bathtub',
+    //     damage: 1,
+    //     health: 100,
+    //     level: 1,
+    //     gold: 1,
+    //     isActive: false,
+    //     img:"https://images.unsplash.com/photo-1626792133251-db513424bc2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+    // },
+    // {
+    //     name: 'Bjorg',
+    //     type: 'cyborg',
+    //     damage: 125,
+    //     health: 500,
+    //     level: 1,
+    //     gold: 1,
+    //     isActive: false,
+    //     img:"https://plus.unsplash.com/premium_photo-1671229062407-979e731e7bd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    // }
 ]
 
 
@@ -112,7 +112,7 @@ function updateHeros(){
 function updateBoss(){
     let bossElem = document.getElementById('boss')
     bossElem.innerHTML = `
-                        <h1>THE BOSS!!!</h1>
+                        <h1>Mumtaz The Magnificent</h1>
                         <h2>Health: ${boss.health}/${boss.maxHealth}</h2>
                         <h3>Damage:${boss.damage}</h3>
     
@@ -134,32 +134,38 @@ function buyOddBall(){
 heroes.forEach(hero =>{
     hero.gold = hero.gold - 50
 })
-heroes[2].isActive = true
-let oddballElem = document.getElementById('hidden')
-oddballElem.innerHTML = `
-            <div class="col-3">
-                <div class="card" id="OddBall">
-                    <h1></h1>
-                    <h2></h2>
-                    <h2></h2>
-                    <h2></h2>
-                    <img src='' alt="">
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" id="Bjorg">
-                    <h1></h1>
-                    <h2></h2>
-                    <h2></h2>
-                    <h2></h2>
-                    <img src="" alt="">
-                </div>
-            </div>
-`
+heroes.push({
+name: 'OddBall',
+        type: 'bathtub',
+        damage: 1,
+        health: 100,
+        level: 1,
+        gold: 1,
+        isActive: true,
+        img:"https://images.unsplash.com/photo-1626792133251-db513424bc2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+})
+     
+
+updateHeros()
 }
 
+
 function buyBjorg(){
+    heroes.forEach(hero =>{
+    hero.gold = hero.gold - 500
+})
     console.log('you bought bjorg');
+    heroes.push({
+         name: 'Bjorg',
+        type: 'cyborg',
+        damage: 125,
+        health: 500,
+        level: 1,
+        gold: 1,
+        isActive: true,
+        img:"https://plus.unsplash.com/premium_photo-1671229062407-979e731e7bd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    })
+    updateHeros()
 }
 
 

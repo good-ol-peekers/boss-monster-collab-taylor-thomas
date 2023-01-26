@@ -1,0 +1,11 @@
+body{
+    background-image: url(https://i.pinimg.com/originals/ea/f2/10/eaf2102aaa597054f587c5caaeb9e3da.gif);
+}
+.style{
+    max-height:10vh;
+    max-width: auto;
+}
+.bossSize{
+    max-height: auto;
+    max-width: 40vw;
+}
